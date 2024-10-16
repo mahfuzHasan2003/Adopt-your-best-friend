@@ -1,0 +1,15 @@
+/* ------------------ Custom Font --------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+body {
+    font-family: "Lato", sans-serif;
+}
+.category-active {
+    background-color: #0e7a811a;
+    border-radius: 99px !important;
+}
+.btn-disabled {
+    background-color: #6666;
+    color: #5556 !important;
+    cursor: not-allowed;
+    border: none;
+}

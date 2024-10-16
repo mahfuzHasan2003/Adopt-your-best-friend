@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adopt Your Best Friend</title>
+
+    <!-- ---------------  Daisy UI CDN --------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ---------------  Tailwind CDN --------------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                        primary: "#0E7A81",
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- ---------------  Fontawesome Kit CDN --------------- -->
+    <script src="https://kit.fontawesome.com/b7eaa77b2e.js" crossorigin="anonymous"></script>
+
+    <!-- ---------------  Custom CSS --------------- -->
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <!-- ---------------  STARTS : Header --------------- -->
+    <header class="w-11/12 xl:max-w-7xl mx-auto">
+        <nav class="py-3">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start gap-3">
+                    <img src="./images/logo.webp" alt="">
+                    <h4 class="font-bold text-xl">Peddy</h4>
+                </div>
+                <div class="navbar-center hidden md:block">
+                    <ul class="flex gap-5 font-bold text-slate-500">
+                        <li><a href="#" class="hover:text-slate-900">Home</a></li>
+                        <li><a href="#" class="hover:text-slate-900">Shop</a></li>
+                        <li><a href="#" class="hover:text-slate-900">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <button class="btn btn-circle border-slate-400 hover:border-slate-400 hidden md:block">
+                        <i class="fa-regular fa-user fa-lg"></i>
+                    </button>
+                    <div class="dropdown md:hidden">
+                        <div tabindex="0" role="button" class="btn btn-circle border-slate-400 hover:border-slate-400">
+                            <i class="fa-solid fa-bars fa-xl"></i>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow right-0 font-semibold">
+                            <button class="btn btn-circle border-slate-400 hover:border-slate-400 mx-auto mb-3">
+                                <i class="fa-regular fa-user fa-lg"></i>
+                            </button>
+                            <li><a>Home</a></li>
+                            <li><a>Shop</a></li>
+                            <li><a>Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- ---------------  ENDS : Header --------------- -->
+
+    <!-- ---------------  STARTS : Main --------------- -->
+    <main>
+        <!-- ---------------  STARTS : Path to Adoption --------------- -->
+        <section class="w-11/12 md:max-w-xl mx-auto text-center space-y-4 mt-5">
+            <p class="font-semibold">Bringing Families Together 💓 </p>
+            <h1 class="text-5xl font-bold">Your Path to Adoption Starts Here</h1>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            <button class="bg-primary px-4 py-2 rounded-md text-white"><a href="#best-deal">View More</a></button>
+            <img src="./images/pet.webp" alt="">
+        </section>
+        <!-- ---------------  ENDS : Path to Adoption --------------- -->
+
+        <!-- ---------------  STARTS : Adopt your best friend --------------- -->
+        <section class="my-16">
+            <div class="w-11/12 max-w-xl mx-auto text-center space-y-4">
+                <h2 class="text-3xl font-bold">Adopt Your Best Friend</h2>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+            <div id="category-section"
+                class="w-8/12 max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-5">
+
+            </div>
+        </section>
+        <!-- ---------------  ENDS : Adopt your best friend --------------- -->
+
+        <!-- ---------------  STARTS : Best deal for you --------------- -->
+        <section class="w-11/12 xl:max-w-7xl mx-auto my-16" id="best-deal">
+            <div class="flex justify-between">
+                <h4 class="text-xl font-bold">Best deal for you</h4>
+                <button class="bg-primary px-4 py-2 rounded-md text-white" id="sort-btn">Sort by
+                    Price</button>
+            </div>
+
+            <span class="loading loading-dots loading-lg block mx-auto mt-20" id="loading"></span>
+
+            <div class="grid grid-cols-3 md:grid-cols-4 gap-3 mt-5">
+                <div id="pets-list"
+                    class="col-span-2 md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                    <!-- ------------ Adding Pets using API ------------- -->
+                </div>
+                <div class="rounded-md grid grid-cols-1 lg:grid-cols-2 gap-2 place-content-start" id="liked-pets">
+                    <!-- ------------ Adding Liked pets images ------------- -->
+                </div>
+            </div>
+        </section>
+        <!-- ---------------  ENDS : Best deal for you --------------- -->
+
+        <!-- ---------------  STARTS : Details modal Showing here!! --------------- -->
+        <section class=" bg-[#000000a2] h-screen w-full fixed top-0 z-10 hidden place-items-center"
+            id="details-section">
+        </section>
+        <!-- ---------------  ENDS : Details modal Showing here!! --------------- -->
+
+        <!-- ---------------  STARTS : Adopt modal Showing here!! --------------- -->
+        <section class=" bg-[#000000a2] h-screen w-full fixed top-0 z-10 hidden place-items-center" id="adopt-section">
+            <div class="w-11/12 max-w-md py-12 bg-white rounded-md flex flex-col gap-4 text-center">
+                <img src="./images/handshake.png" alt="" class="w-32 rounded-md mx-auto">
+                <h2 class="font-black text-4xl">Congrates</h2>
+                <p>Adoption process is start for your pet.</p>
+                <h1 id="count-down" class="text-5xl font-black"></h1>
+            </div>
+        </section>
+        <!-- ---------------  ENDS : Adopt modal Showing here!! --------------- -->
+
+    </main>
+    <!-- ---------------  ENDS : Main --------------- -->
+
+    <!-- ---------------  STARTS : Footer --------------- -->
+    <footer class="bg-[#131313]">
+        <div class="w-11/12 xl:max-w-7xl mx-auto py-12 flex flex-col md:flex-row gap-10 justify-between">
+            <div class="text-[#ffffffe6] flex flex-col gap-2">
+                <div class="flex gap-3 mb-5">
+                    <img src="./images/logo.webp" alt="">
+                    <h4 class="font-bold text-xl">Peddy</h4>
+                </div>
+                <p>Location: av. Washington 165, NY CA 54003 </p>
+                <p>Phone: +31 85 964 47 25 </p>
+                <p>Email: info@yourdomain.com </p>
+                <p>Openings hours: 9.00 AM - 5.00 PM</p>
+                <div class="flex gap-2 mt-5">
+                    <a href="#"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube fa-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+                </div>
+            </div>
+            <div class="text-[#ffffffe6]">
+                <h4 class="text-lg font-semibold mb-5">Useful Links</h4>
+                <ul class="flex flex-col gap-2 text-[#ffffff99]">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Animals</a></li>
+                    <li><a href="#">Foundation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="text-lg font-semibold mb-5 text-[#ffffffe6]">Drop a Message</h4>
+                <input type="email" name="" id=""
+                    class="bg-[#ffffff0d] rounded-md px-3 py-2 text-[#ffffffe6] outline-none"
+                    placeholder="Enter your email">
+                <input type="submit" value="Subscribe"
+                    class="bg-primary rounded-md px-3 py-2 text-[#ffffffe6] font-semibold">
+            </div>
+        </div>
+    </footer>
+    <!-- ---------------  ENDS : Footer --------------- -->
+
+    <!-- ---------------  Custom JS --------------- -->
+    <script src="./Script/script.js"></script>
+</body>
+
+</html>
